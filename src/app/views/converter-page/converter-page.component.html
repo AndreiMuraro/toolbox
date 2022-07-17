@@ -1,15 +1,33 @@
-<po-container
-  [p-height]="300"
-  [p-no-border]="false"
-  [p-no-padding]="false"
-  [p-no-shadow]="false"
-  ><div class="input-group">
-    <po-input p-placeholder="Binario" p-icon="po-icon-calculator"></po-input>
+<form class="form-group">
+  <po-container
+    [p-height]="300"
+    [p-no-border]="false"
+    [p-no-padding]="false"
+    [p-no-shadow]="false"
+    ><div class="input-group">
+      <po-input
+        p-placeholder="Binario"
+        p-icon="po-icon-calculator"
+        p-mask="11111111"
+        name="binary"
+        [(ngModel)]="valor"
+      ></po-input>
 
-    <i class="po-icon po-icon-change"></i>
-    <po-input p-placeholder="Decimal" p-icon="po-icon-calculator"></po-input>
-  </div>
-  <div class="button-group">
-    <po-button p-label="Converter" p-icon="po-icon-arrow-right"></po-button>
-  </div>
-</po-container>
+      <i class="po-icon po-icon-change"></i>
+      <po-input
+        p-placeholder="Decimal"
+        p-icon="po-icon-calculator"
+        p-readonly="true"
+        name="decimal"
+        [(ngModel)]="resultado"
+      ></po-input>
+    </div>
+    <div class="button-group">
+      <po-button
+        p-label="Converter"
+        p-icon="po-icon-arrow-right"
+        (p-click)="convert()"
+      ></po-button>
+    </div>
+  </po-container>
+</form>
