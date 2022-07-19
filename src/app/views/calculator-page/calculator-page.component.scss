@@ -1,0 +1,15 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  min-width: 300px;
+  margin: 0 auto;
+  padding-top: 3rem;
+}
+.input__header {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  margin: 10px auto;
+}
