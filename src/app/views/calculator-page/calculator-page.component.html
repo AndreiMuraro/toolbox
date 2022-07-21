@@ -1,22 +1,38 @@
-<form class="form-group"></form>
-<po-container
-  [p-height]="500"
-  [p-no-border]="false"
-  [p-no-padding]="false"
-  [p-no-shadow]="false"
->
-  <div class="input__header">
-    <po-input name="resultado" [(ngModel)]="valor"></po-input>
-  </div>
-  <div class="keys">
-    <po-button
-      *ngFor="let key of keys"
-      p-label="{{ key }}"
-      (p-click)="addNumber([key])"
-    ></po-button>
-    <po-button p-label="x" (p-click)="operator('*')"></po-button>
-    <po-button p-label="%" (p-click)="operator('%')"></po-button>
-    <po-button p-label="+" (p-click)="operator('+')"></po-button>
-    <po-button p-label="-" (p-click)="operator('-')"></po-button>
-  </div>
-</po-container>
+<form class="form-group">
+  <po-container
+    [p-height]="500"
+    [p-no-border]="false"
+    [p-no-padding]="false"
+    [p-no-shadow]="false"
+  >
+    <div class="input__header">
+      <po-input name="resultado" [(ngModel)]="valor"></po-input>
+    </div>
+    <div class="keypad">
+      <po-button
+        class="operator"
+        p-label="+"
+        (p-click)="operator('+')"
+      ></po-button>
+      <po-button
+        class="operator"
+        p-label="-"
+        (p-click)="operator('-')"
+      ></po-button>
+      <po-button
+        class="operator"
+        p-label="x"
+        (p-click)="operator('*')"
+      ></po-button>
+      <po-button
+        *ngFor="let key of keys"
+        p-label="{{ key }}"
+        (p-click)="addNumber([key])"
+        class="key"
+      ></po-button>
+      <po-button class="operator" p-label="." (p-click)="decimal()"></po-button>
+      <po-button class="operator" p-label="C" (p-click)="clear()"></po-button>
+      <button class="equal-sign" (click)="operator('=')">=</button>
+    </div>
+  </po-container>
+</form>

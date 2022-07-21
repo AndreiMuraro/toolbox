@@ -7,8 +7,8 @@ import { CalculatorService } from './calculator.service';
   styleUrls: ['./calculator-page.component.scss'],
 })
 export class CalculatorPageComponent implements OnInit {
-  keys: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-  valor: string = '';
+  keys: number[] = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0];
+  valor: any = '';
 
   constructor(private calculator: CalculatorService) {}
 
@@ -16,14 +16,26 @@ export class CalculatorPageComponent implements OnInit {
 
   addNumber(numero: number[]) {
     this.calculator.getNumber(numero);
-    this.showDisplay();
+    this.showCurrentKey();
   }
 
-  showDisplay() {
-    this.valor = this.calculator.currentKey;
+  showCurrentKey() {
+    this.valor = this.calculator.getCurrentKey();
+  }
+
+  showFirstOperand() {
+    this.valor = this.calculator.getFirstOperand();
   }
 
   operator(operador: string) {
-    this.showDisplay();
+    this.calculator.getOperation(operador);
+    this.showFirstOperand();
+  }
+
+  decimal() {
+    this.calculator.getDecimal();
+  }
+  clear() {
+    this.valor = this.calculator.clear();
   }
 }

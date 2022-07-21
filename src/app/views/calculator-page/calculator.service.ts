@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CalculatorService {
-  currentKey: string = '';
-  firstOperand: number = 0;
+  currentKey: string = '0';
+  firstOperand: number = -1;
   waitSecondNumber: boolean = false;
   operator!: string;
 
@@ -16,7 +16,7 @@ export class CalculatorService {
       this.currentKey = numero.toString();
       this.waitSecondNumber = false;
     } else {
-      this.currentKey.length === 0
+      this.currentKey === '0'
         ? (this.currentKey = numero.toString())
         : (this.currentKey += numero.toString());
     }
@@ -42,18 +42,29 @@ export class CalculatorService {
     }
   }
   getOperation(op: string) {
-    if (this.operator === null) {
+    console.log(op);
+    if (this.firstOperand === -1) {
       this.firstOperand = Number(this.currentKey);
     } else if (this.operator) {
-      const result = this.doCalculation(op, Number(this.currentKey));
+      const result = this.doCalculation(this.operator, Number(this.currentKey));
       this.currentKey = String(result);
       this.firstOperand = result;
     }
+    this.operator = op;
+    this.waitSecondNumber = true;
+    console.log(this.firstOperand);
   }
   clear() {
     this.currentKey = '';
     this.firstOperand = 0;
     this.operator = '';
     this.waitSecondNumber = false;
+  }
+  getCurrentKey() {
+    return this.currentKey;
+  }
+
+  getFirstOperand() {
+    return this.firstOperand;
   }
 }

@@ -1,15 +1,29 @@
 .form-group {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  min-width: 300px;
-  margin: 0 auto;
-  padding-top: 3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
 }
 .input__header {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
+  padding: 16px 32px;
+  text-align: right;
+}
 
-  margin: 10px auto;
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.equal-sign {
+  background-color: #2e86c0;
+  border-color: #337cac;
+  color: #fff;
+  height: 100%;
+  grid-row: 1 / 6;
+  grid-column: 4 / 5;
 }

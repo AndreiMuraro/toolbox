@@ -7,7 +7,7 @@ Estou desenvolvendo esse projeto para estudo do framework [Angular](https://angu
 Há algumas coisas que pretendo ir adicionando como teste nesse projeto, algumas delas serão listadas abaixo:
 
 - [x] Bin2Dec
-- [ ] Calculator
+- [x] Calculator
 - [ ] Todo-list
 - [ ] CountDown
 - [ ] Pomodoro
